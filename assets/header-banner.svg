@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Night-sky gradient -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#02091f"/>
+      <stop offset="35%"  stop-color="#071a4b"/>
+      <stop offset="65%"  stop-color="#1a4a93"/>
+      <stop offset="92%"  stop-color="#7eb1dd"/>
+      <stop offset="100%" stop-color="#cfe5f4"/>
+    </linearGradient>
+
+    <!-- Soft cloud / haze near horizon -->
+    <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".18"/>
+    </linearGradient>
+
+    <!-- Star glow halo -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="12%"  stop-color="#ffffff" stop-opacity=".85"/>
+      <stop offset="35%"  stop-color="#cfe1ff" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#cfe1ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Pyramid shading -->
+    <linearGradient id="pyramidLit" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#5a3f17"/>
+      <stop offset="40%"  stop-color="#a87d3a"/>
+      <stop offset="100%" stop-color="#f0c873"/>
+    </linearGradient>
+    <linearGradient id="pyramidDark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#1a1208"/>
+      <stop offset="100%" stop-color="#3d2a10"/>
+    </linearGradient>
+
+    <!-- Subtle haze at base of pyramid -->
+    <radialGradient id="baseHaze" cx="50%" cy="100%" r="60%">
+      <stop offset="0%"   stop-color="#cfe1ff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#cfe1ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Soft blur for star glow -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="240" fill="url(#sky)"/>
+
+  <!-- Distant stars (small) -->
+  <g fill="#ffffff">
+    <circle cx="40"   cy="22"  r="0.9" opacity=".85"/>
+    <circle cx="95"   cy="55"  r="0.6" opacity=".7"/>
+    <circle cx="140"  cy="18"  r="0.8" opacity=".8"/>
+    <circle cx="190"  cy="42"  r="0.5" opacity=".6"/>
+    <circle cx="235"  cy="70"  r="0.9" opacity=".75"/>
+    <circle cx="280"  cy="28"  r="0.6" opacity=".65"/>
+    <circle cx="320"  cy="60"  r="1.0" opacity=".9"/>
+    <circle cx="360"  cy="14"  r="0.7" opacity=".75"/>
+    <circle cx="405"  cy="48"  r="0.6" opacity=".6"/>
+    <circle cx="450"  cy="22"  r="0.9" opacity=".85"/>
+    <circle cx="500"  cy="55"  r="0.5" opacity=".55"/>
+    <circle cx="555"  cy="20"  r="0.9" opacity=".85"/>
+    <circle cx="610"  cy="72"  r="0.6" opacity=".65"/>
+    <circle cx="665"  cy="35"  r="0.8" opacity=".75"/>
+    <circle cx="720"  cy="18"  r="0.5" opacity=".55"/>
+    <circle cx="780"  cy="65"  r="0.9" opacity=".8"/>
+    <circle cx="835"  cy="30"  r="0.7" opacity=".7"/>
+    <circle cx="890"  cy="58"  r="0.6" opacity=".6"/>
+    <circle cx="945"  cy="22"  r="0.9" opacity=".85"/>
+    <circle cx="1000" cy="48"  r="0.5" opacity=".55"/>
+    <circle cx="1055" cy="14"  r="0.8" opacity=".8"/>
+    <circle cx="1100" cy="42"  r="0.6" opacity=".65"/>
+    <circle cx="1150" cy="68"  r="0.9" opacity=".85"/>
+    <circle cx="60"   cy="100" r="0.6" opacity=".5"/>
+    <circle cx="170"  cy="115" r="0.5" opacity=".45"/>
+    <circle cx="365"  cy="105" r="0.6" opacity=".5"/>
+    <circle cx="585"  cy="118" r="0.5" opacity=".45"/>
+    <circle cx="810"  cy="108" r="0.6" opacity=".5"/>
+    <circle cx="1020" cy="120" r="0.5" opacity=".45"/>
+  </g>
+
+  <!-- Soft horizon haze -->
+  <rect x="0" y="120" width="1200" height="120" fill="url(#haze)"/>
+
+  <!-- ============== The bright Sirius star ============== -->
+  <g transform="translate(465 70)">
+    <!-- big soft halo -->
+    <circle cx="0" cy="0" r="80" fill="url(#starGlow)" filter="url(#softBlur)"/>
+    <!-- inner halo -->
+    <circle cx="0" cy="0" r="34" fill="url(#starGlow)"/>
+    <!-- 4-point star rays -->
+    <g fill="#ffffff" opacity=".95">
+      <polygon points="0,-60  3,-3  0,0  -3,-3"/>
+      <polygon points="0,60   3,3   0,0   -3,3"/>
+      <polygon points="-90,0  -3,3  0,0   -3,-3"/>
+      <polygon points="90,0    3,3  0,0    3,-3"/>
+    </g>
+    <!-- Diagonal subtle rays -->
+    <g fill="#ffffff" opacity=".35">
+      <polygon points="0,-30 1.5,-1 0,0 -1.5,-1" transform="rotate(45)"/>
+      <polygon points="0,-30 1.5,-1 0,0 -1.5,-1" transform="rotate(-45)"/>
+      <polygon points="0,-30 1.5,-1 0,0 -1.5,-1" transform="rotate(135)"/>
+      <polygon points="0,-30 1.5,-1 0,0 -1.5,-1" transform="rotate(-135)"/>
+    </g>
+    <!-- Bright core -->
+    <circle cx="0" cy="0" r="5" fill="#ffffff"/>
+  </g>
+
+  <!-- ============== Pyramid ============== -->
+  <!-- Base haze -->
+  <ellipse cx="220" cy="232" rx="220" ry="20" fill="url(#baseHaze)"/>
+
+  <!-- Pyramid (left lit face) -->
+  <polygon points="120,235  235,118  235,235" fill="url(#pyramidLit)"/>
+  <!-- Pyramid (right shadowed face) -->
+  <polygon points="235,118  235,235  330,235" fill="url(#pyramidDark)"/>
+  <!-- Crisp top edge highlight -->
+  <polygon points="235,118 237,128 230,130" fill="#fff4d4" opacity=".7"/>
+
+  <!-- Texture lines on lit face -->
+  <g stroke="#7a5523" stroke-width=".6" opacity=".35">
+    <line x1="148" y1="207" x2="235" y2="207"/>
+    <line x1="170" y1="180" x2="235" y2="180"/>
+    <line x1="195" y1="155" x2="235" y2="155"/>
+    <line x1="215" y1="140" x2="235" y2="140"/>
+  </g>
+  <!-- Texture lines on dark face -->
+  <g stroke="#0c0805" stroke-width=".5" opacity=".5">
+    <line x1="235" y1="207" x2="305" y2="207"/>
+    <line x1="235" y1="180" x2="285" y2="180"/>
+    <line x1="235" y1="155" x2="265" y2="155"/>
+  </g>
+
+  <!-- ============== Title Сիրիուս ============== -->
+  <g>
+    <!-- subtle text shadow -->
+    <text x="930" y="150"
+          font-family="'Noto Serif Armenian', 'Mshtakan', 'Sylfaen', serif"
+          font-size="92"
+          font-style="italic"
+          font-weight="400"
+          fill="#000000"
+          opacity=".35"
+          text-anchor="middle"
+          letter-spacing="2">Սիրիուս</text>
+    <text x="928" y="148"
+          font-family="'Noto Serif Armenian', 'Mshtakan', 'Sylfaen', serif"
+          font-size="92"
+          font-style="italic"
+          font-weight="400"
+          fill="#ffffff"
+          text-anchor="middle"
+          letter-spacing="2">Սիրիուս</text>
+  </g>
+</svg>
