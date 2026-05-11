@@ -282,20 +282,35 @@ main.content ul, main.content ol { padding-left: 20px; }
 
 .master-card .portrait {
   width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 60%, var(--gold-deep));
+  height: 165px;
+  border-radius: 6px;
+  background: linear-gradient(160deg, #1a2a4a 0%, #0d1a33 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--night-deep);
-  font-weight: 700;
-  font-size: 13px;
+  color: var(--gold);
+  font-size: 11px;
   text-align: center;
-  border: 3px solid #ffffff;
+  border: 2px dashed rgba(230,185,76,0.35);
   box-shadow: 0 4px 14px rgba(2,9,31,.3);
   padding: 8px;
-  line-height: 1.2;
+  line-height: 1.4;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.master-card .portrait::before {
+  content: "🖼";
+  font-size: 32px;
+  opacity: 0.4;
+}
+
+.master-card .portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .master-card h3 {
@@ -327,9 +342,9 @@ main.content ul, main.content ol { padding-left: 20px; }
 /* =========================== Language switcher ================== */
 
 .lang-switcher {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   font-size: 13px;
 }
 
@@ -357,6 +372,43 @@ main.content ul, main.content ol { padding-left: 20px; }
   border: 1px solid #c8c8c8;
   border-radius: 2px;
   flex-shrink: 0;
+}
+
+.flag-emoji {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+/* =========================== Sidebar banners ==================== */
+
+.sidebar-banners {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.sidebar-banner {
+  display: block;
+  border-bottom: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.sidebar-banner:hover {
+  opacity: 1;
+}
+
+.sidebar-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* =========================== Cycle list ========================= */
