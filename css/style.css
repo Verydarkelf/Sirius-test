@@ -469,6 +469,24 @@ main.content ul, main.content ol { padding-left: 20px; }
   margin-top: 18px;
 }
 
+.author-photo {
+  float: right;
+  margin: 6px 0 16px 24px;
+  width: 320px;
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(2,9,31,.2);
+  border: 2px solid var(--gold-soft);
+}
+
+@media (max-width: 768px) {
+  .author-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+}
+
 .ps-note {
   font-size: 13px;
   font-style: italic;
