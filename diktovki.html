@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hy">
 
 <head>
@@ -23,22 +23,27 @@
   </a>
 
   <nav class="main-nav" aria-label="Գլխավոր մենյու">
-    <ul>
+    <div class="nav-inner">
+      <span class="nav-brand">ՍԻՐԻՈՒՍ</span>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav-list" aria-label="Բացել/փակել մենյու">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul id="main-nav-list">
       <li><a href="index.html">Գլխավոր</a></li>
       <li><a href="diktovki.html" class="active">Թելադրություններ</a></li>
       <li><a href="how-to-read.html">Ինչպե՞ս կարդալ</a></li>
       <li><a href="likove.html">Վեհապետների Դեմքեր</a></li>
       <li><a href="rozarii.html">Վարդարաններ</a></li>
-
       <li><a href="knigi.html">Գրքեր</a></li>
-
     </ul>
   </nav>
 
   <div class="page">
 
     <aside class="sidebar">
-      <h3>Բաժնի մասեր</h3>
+      <h3 class="sidebar-toggle">Բաժնի մասեր</h3>
+      <div class="sidebar-content">
       <a href="#cycles">Ուղերձների ցիկլեր</a>
       <a href="#audio">Ձայնագրություններ</a>
       <a href="#how-to-read">Ինչպես կարդալ</a>
@@ -47,6 +52,7 @@
       <a href="#prayers">Կոչեր</a>
       <a href="#mantras">Մանտրաներ</a>
       <a href="#dispensation">23-ի Միջնորդություն</a>
+      </div>
     </aside>
 
     <main class="content">
@@ -221,4 +227,41 @@
       <h3>Աղբյուրներ</h3>
       <a href="https://sirius1-bg.org/index.php/2016-09-14-14-28-11" target="_blank" rel="noopener">Բուլղարական
         աղբյուր</a>
-      <a href="http://www.sirius-ru.net/" target="_blank" rel="noopener">Ռուսական
+      <a href="http://www. աղբյուր</a>
+    </aside>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2026 ՍԻՐԻՈՒՍ — Համբարձված Վեհապետների Ուսմունքը հայերեն</p>
+    <p class="source-note">Թարգմանված է բուլղարական կայքից <a href="https://sirius1-bg.org/" target="_blank" rel="noopener">sirius1-bg.org</a> և ռուսական աղբյուրից <a href="http://www.sirius-ru.net/" target="_blank" rel="noopener">sirius-ru.net</a></p>
+  </footer>
+
+</body>
+
+<script>
+(function() {
+  var btn = document.getElementById('nav-toggle');
+  var navList = document.getElementById('main-nav-list');
+  if (btn && navList) {
+    btn.addEventListener('click', function() {
+      var open = navList.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navList.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        navList.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
+    h3.addEventListener('click', function() {
+      var sidebar = h3.closest('.sidebar');
+      if (sidebar) sidebar.classList.toggle('collapsed');
+    });
+  });
+})();
+</script>
+
+</html>

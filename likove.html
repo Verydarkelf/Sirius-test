@@ -25,22 +25,27 @@
   </a>
 
   <nav class="main-nav" aria-label="Գլխավոր մենյու">
-    <ul>
+    <div class="nav-inner">
+      <span class="nav-brand">ՍԻՐԻՈՒՍ</span>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav-list" aria-label="Բացել/փակել մենյու">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul id="main-nav-list">
       <li><a href="index.html">Գլխավոր</a></li>
       <li><a href="diktovki.html">Թելադրություններ</a></li>
       <li><a href="how-to-read.html">Ինչպե՞ս կարդալ</a></li>
       <li><a href="likove.html" class="active">Վեհապետների Դեմքեր</a></li>
       <li><a href="rozarii.html">Վարդարաններ</a></li>
-
       <li><a href="knigi.html">Գրքեր</a></li>
-
     </ul>
   </nav>
 
   <div class="page">
 
     <aside class="sidebar">
-      <h3>Վեհապետներ</h3>
+      <h3 class="sidebar-toggle">Վեհապետներ</h3>
+      <div class="sidebar-content">
       <a href="#karmic-board">Մեծն Կարմայական Խորհուրդ</a>
       <a href="#mikhail">Հրեշտակապետ Միքայել</a>
       <a href="#helios">Հելիոս</a>
@@ -62,6 +67,7 @@
       <a href="#blavatsky">Տիկին Թեոսոֆիա (Հ.Պ.Բ.)</a>
       <a href="#igor">Իգոր</a>
       <a href="#confucius">Կոնֆուցիոս</a>
+      </div>
     </aside>
 
     <main class="content">
@@ -554,6 +560,36 @@
 
   </div>
 
+  <footer class="site-footer">
+    <p>© 2026 ՍԻՐԻՈՒՍ — Համբարձված Վեհապետների Ուսմունքը հայերեն</p>
+    <p class="source-note">Թարգմանված է բուլղարական կայքից <a href="https://sirius1-bg.org/" target="_blank" rel="noopener">sirius1-bg.org</a> և ռուսական աղբյուրից <a href="http://www.sirius-ru.net/" target="_blank" rel="noopener">sirius-ru.net</a></p>
+  </footer>
+
 </body>
+
+<script>
+(function() {
+  var btn = document.getElementById('nav-toggle');
+  var navList = document.getElementById('main-nav-list');
+  if (btn && navList) {
+    btn.addEventListener('click', function() {
+      var open = navList.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navList.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        navList.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
+    h3.addEventListener('click', function() {
+      var sidebar = h3.closest('.sidebar');
+      if (sidebar) sidebar.classList.toggle('collapsed');
+    });
+  });
+})();
+</script>
 
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hy">
 
 <head>
@@ -23,22 +23,27 @@
   </a>
 
   <nav class="main-nav" aria-label="Գլխավոր մենյու">
-    <ul>
+    <div class="nav-inner">
+      <span class="nav-brand">ՍԻՐԻՈՒՍ</span>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav-list" aria-label="Բացել/փակել մենյու">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul id="main-nav-list">
       <li><a href="index.html" class="active">Գլխավոր</a></li>
       <li><a href="diktovki.html">Թելադրություններ</a></li>
       <li><a href="how-to-read.html">Ինչպե՞ս կարդալ</a></li>
       <li><a href="likove.html">Վեհապետների Դեմքեր</a></li>
       <li><a href="rozarii.html">Վարդարաններ</a></li>
-
       <li><a href="knigi.html">Գրքեր</a></li>
-
     </ul>
   </nav>
 
   <div class="page">
 
     <aside class="sidebar">
-      <h3>Լեզուներ</h3>
+      <h3 class="sidebar-toggle">Լեզուներ</h3>
+      <div class="sidebar-content">
       <div class="lang-switcher">
         <a href="https://www.sirius-am.net" target="_blank" rel="noopener" class="current"><span
             class="flag-emoji">🇦🇲</span>Հայերեն</a>
@@ -93,6 +98,7 @@
       <a href="rozarii.html">Վարդարաններ</a>
       <a href="diktovki.html#how-to-read">Ինչպես կարդալ Ուղերձները</a>
       <a href="diktovki.html#dispensation">23-ի Միջնորդությունը</a>
+      </div>
     </aside>
 
     <main class="content">
@@ -170,36 +176,28 @@
         առկա է <a href="https://sirius-ru.net/books/books_mikushina.htm" target="_blank" rel="noopener">ռուսական
           պաշտոնական կայքում</a>։</p>
 
-      <h2>Հոգևոր Աշխատանք</h2>
-      <ul>
-
-        <li><a href="diktovki.html#dispensation">Ամսվա 23-ին տրվող Միջնորդությունը</a></li>
-        <li><a href="diktovki.html#how-to-read">Վեհապետների խորհուրդները՝ Ուղերձների ընթերցման մասին</a></li>
-        <li><a href="diktovki.html#mantras">Մանտրաներ</a></li>
-
-        <li><a href="diktovki.html#prayers">Կոչեր ամենօրյա հոգևոր աշխատանքի համար</a></li>
-
-        <li><a href="likove.html#mary">Մարիամ Մոր էջը</a></li>
-      </ul>
-
-      <p class="muted small">Կայքի նյութերը թարգմանված են ռուսական կայքից՝ <a href="http://www.sirius-ru.net/"
-          target="_blank" rel="noopener">www.sirius-ru.net</a> և բուլղարական կայքից՝ <a href="https://sirius1-bg.org/"
-          target="_blank" rel="noopener">sirius1-bg.org</a>։</p>
-
     </main>
 
     <aside class="sidebar">
-      <h3>Նորություններ</h3>
-      <a href="#" class="banner">Օրացույց — 2026</a>
-      <p class="small muted">Տատյանա Միկուշինայի նոր գիրքը՝ «Իմաստության Գիրք»</p>
+      <h3>Գրքեր</h3>
 
-      <h3 style="margin-top:18px;">Մեդիա</h3>
-      <a href="https://www.youtube.com/channel/UCld83s2idv-lQn-OxlmQ4Lg/videos" target="_blank" rel="noopener">▶ YouTube
-        ալիք</a>
-      <a href="https://sirius-centers.net/music/index.htm" target="_blank" rel="noopener">♪ Առաջարկվող Երաժշտություն</a>
+      <div class="book-entry">
+        <div class="book-cover-placeholder" aria-label="Գրքի շապիկի տեղ"></div>
+        <p class="book-title">Տատյանա Միկուշինայի «Իմաստության Գիրք»</p>
+        <a href="#" class="btn-download" download>Ներբեռնել</a>
+      </div>
 
+      <div class="book-entry">
+        <div class="book-cover-placeholder" aria-label="Գրքի շապիկի տեղ"></div>
+        <p class="book-title">Մեծ ճերմակ Եղբայրության գաղտնիքները</p>
+        <a href="#" class="btn-download" download>Ներբեռնել</a>
+      </div>
 
-
+      <div class="book-entry">
+        <div class="book-cover-placeholder" aria-label="Գրքի շապիկի տեղ"></div>
+        <p class="book-title">Ճանապարհորդություն դեպի ապագա</p>
+        <a href="#" class="btn-download" download>Ներբեռնել</a>
+      </div>
 
     </aside>
 
@@ -213,5 +211,33 @@
   </footer>
 
 </body>
+
+<script>
+(function() {
+  // Hamburger nav toggle
+  var btn = document.getElementById('nav-toggle');
+  var navList = document.getElementById('main-nav-list');
+  if (btn && navList) {
+    btn.addEventListener('click', function() {
+      var open = navList.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Close menu when a link is clicked
+    navList.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        navList.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  // Collapsible sidebars
+  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
+    h3.addEventListener('click', function() {
+      var sidebar = h3.closest('.sidebar');
+      if (sidebar) sidebar.classList.toggle('collapsed');
+    });
+  });
+})();
+</script>
 
 </html>
