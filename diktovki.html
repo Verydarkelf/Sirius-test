@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hy">
 
 <head>
@@ -44,14 +44,11 @@
     <aside class="sidebar">
       <h3 class="sidebar-toggle">Բաժնի մասեր</h3>
       <div class="sidebar-content">
-      <a href="#cycles">Ուղերձների ցիկլեր</a>
-      <a href="#audio">Ձայնագրություններ</a>
-      <a href="#how-to-read">Ինչպես կարդալ</a>
-      <a href="#letters">Կարմայի Կառավարությանը նամակներ</a>
-      <a href="#discernment">Հոգևոր տարբերակում</a>
-      <a href="#prayers">Կոչեր</a>
-      <a href="#mantras">Մանտրաներ</a>
-      <a href="#dispensation">23-ի Միջնորդություն</a>
+        <a href="#cycles">Ուղերձների ցիկլեր</a>
+        <a href="#audio">Ձայնագրություններ</a>
+        <a href="#how-to-read">Ինչպես կարդալ</a>
+        <a href="#letters">Նամակներ Կարմայական Խորհրդին</a>
+        <a href="#dispensation">23-ի Միջնորդություն</a>
       </div>
     </aside>
 
@@ -197,24 +194,13 @@
         ընթերցել ամեն օր, լսելով սրտի ձայնը, և թույլ տալով, որ Ուղերձների իմաստը աստիճանաբար ներթափանցի գիտակցության
         խորքերը։</p>
 
-      <h2 id="letters">Կարմայի Մեծ Կառավարությանը նամակներ</h2>
-      <p>Կարմայի Մեծ Կառավարությունը ութ Համբարձված Վեհապետներից կազմված մարմին է, որին վերապահված է այս աշխարհների
-        համակարգում արդարադատություն իրականացնելու պատասխանատվությունը։ Կառավարության անդամներն են՝ <strong>Մեծ
+      <h2 id="letters">Նամակներ Կարմայական Խորհրդին</h2>
+      <p>Կարմայական Խորհուրդը ութ Համբարձված Վեհապետներից կազմված մարմին է, որին վերապահված է այս աշխարհների
+        համակարգում արդարադատություն իրականացնելու պատասխանատվությունը։ Խորհուրդի անդամներն են՝ <strong>Մեծ
           Աստվածային Կառավարիչը, Ազատության Աստվածուհին, Համբարձված Վեհապետուհի Նադան, Էլոհիմ Կիկլոպեյը, Աթենաս Պալլասը՝
           Ճշմարտության Աստվածուհին, Պորցիան՝ Արդարության Աստվածուհին, Գուան Ինը՝ Գթության և Կարեկցության Աստվածուհին,
           Բուդդա Վայրոչանան</strong>։</p>
 
-      <h2 id="discernment">Հոգևոր տարբերակում</h2>
-      <p>Իրականությունը պատրանքից տարբերելու ուսմունքը՝ Ուղերձներից առանձին հատվածներ, որոնք առնչվում են բարակ
-        աշխարհների հետ շփման հարցին։</p>
-
-      <h2 id="prayers">Կոչեր ամենօրյա հոգևոր աշխատանքի համար</h2>
-      <p>Համբարձված Վեհապետները տվել են բազմաթիվ կոչեր, որոնք օգնում են ամենօրյա հոգևոր աշխատանքին։ Կոչերը կարդալիս՝
-        կարևոր է զգալ դրանց իմաստը սրտով, ոչ թե միայն մտքով։</p>
-
-      <h2 id="mantras">Մանտրաներ</h2>
-      <p>Մանտրաների ընթերցումը հին հոգևոր պրակտիկա է։ Կրկնելով Աստվածային անունները կամ բարձր թրթռումներ ունեցող
-        բառակապակցությունները՝ մարդը մաքրում է իր էներգետիկ դաշտը և բարձրացնում իր գիտակցության մակարդակը։</p>
 
       <h2 id="dispensation">Ամսվա 23-ին տրվող Միջնորդությունը</h2>
       <p>Ամեն ամսվա 23-ին Համբարձված Վեհապետները տրամադրում են հատուկ միջնորդություն այն մարդկանց համար, ովքեր
@@ -261,34 +247,33 @@
 
   <footer class="site-footer">
     <p>© 2026 ՍԻՐԻՈՒՍ — Համբարձված Վեհապետների Ուսմունքը հայերեն</p>
-    <p class="source-note">Թարգմանված է բուլղարական կայքից <a href="https://sirius1-bg.org/" target="_blank" rel="noopener">sirius1-bg.org</a> և ռուսական աղբյուրից <a href="http://www.sirius-ru.net/" target="_blank" rel="noopener">sirius-ru.net</a></p>
   </footer>
 
 </body>
 
 <script>
-(function() {
-  var btn = document.getElementById('nav-toggle');
-  var navList = document.getElementById('main-nav-list');
-  if (btn && navList) {
-    btn.addEventListener('click', function() {
-      var open = navList.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  (function () {
+    var btn = document.getElementById('nav-toggle');
+    var navList = document.getElementById('main-nav-list');
+    if (btn && navList) {
+      btn.addEventListener('click', function () {
+        var open = navList.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navList.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          navList.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    document.querySelectorAll('.sidebar-toggle').forEach(function (h3) {
+      h3.addEventListener('click', function () {
+        var sidebar = h3.closest('.sidebar');
+        if (sidebar) sidebar.classList.toggle('collapsed');
+      });
     });
-    navList.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') {
-        navList.classList.remove('nav-open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
-    h3.addEventListener('click', function() {
-      var sidebar = h3.closest('.sidebar');
-      if (sidebar) sidebar.classList.toggle('collapsed');
-    });
-  });
-})();
+  })();
 </script>
 
 </html>

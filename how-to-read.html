@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hy">
 
 <head>
@@ -67,10 +67,10 @@
     <aside class="sidebar">
       <h3 class="sidebar-toggle">Բաժնի մասեր</h3>
       <div class="sidebar-content">
-      <a href="#suria">Տեր Սուրիա</a>
-      <a href="#kuthumi">Տեր Կութհումի</a>
-      <a href="#babaji">Սիրելի Բաբաջի</a>
-      <a href="#hilarion">Վեհապետ Հիլարիոն</a>
+        <a href="#suria">Տեր Սուրիա</a>
+        <a href="#kuthumi">Տեր Կութհումի</a>
+        <a href="#babaji">Սիրելի Բաբաջի</a>
+        <a href="#hilarion">Վեհապետ Հիլարիոն</a>
       </div>
     </aside>
 
@@ -270,27 +270,28 @@
 </body>
 
 <script>
-(function() {
-  var btn = document.getElementById('nav-toggle');
-  var navList = document.getElementById('main-nav-list');
-  if (btn && navList) {
-    btn.addEventListener('click', function() {
-      var open = navList.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  (function () {
+    var btn = document.getElementById('nav-toggle');
+    var navList = document.getElementById('main-nav-list');
+    if (btn && navList) {
+      btn.addEventListener('click', function () {
+        var open = navList.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navList.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          navList.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    document.querySelectorAll('.sidebar-toggle').forEach(function (h3) {
+      h3.addEventListener('click', function () {
+        var sidebar = h3.closest('.sidebar');
+        if (sidebar) sidebar.classList.toggle('collapsed');
+      });
     });
-    navList.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') {
-        navList.classList.remove('nav-open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
-    h3.addEventListener('click', function() {
-      var sidebar = h3.closest('.sidebar');
-      if (sidebar) sidebar.classList.toggle('collapsed');
-    });
-  });
-})();
+  })();
 </script>
+
 </html>

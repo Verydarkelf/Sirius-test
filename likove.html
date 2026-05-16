@@ -46,27 +46,27 @@
     <aside class="sidebar">
       <h3 class="sidebar-toggle">Վեհապետներ</h3>
       <div class="sidebar-content">
-      <a href="#karmic-board">Մեծն Կարմայական Խորհուրդ</a>
-      <a href="#mikhail">Հրեշտակապետ Միքայել</a>
-      <a href="#helios">Հելիոս</a>
-      <a href="#athena">Աթենաս Պալլաս</a>
-      <a href="#sanat">Սանատ Կումարա</a>
-      <a href="#shiva">Տեր Շիվա</a>
-      <a href="#nikolai">Վեհապետ Նիկողայոս</a>
-      <a href="#jesus">Հիսուս</a>
-      <a href="#john">Հովհաննես Մկրտիչ</a>
-      <a href="#hilarion">Հիլարիոն</a>
-      <a href="#victorious">Հզոր Հաղթանակ</a>
-      <a href="#stgermain">Սեն-Ժերմեն</a>
-      <a href="#serapis">Սերապիս Բեյ</a>
-      <a href="#morya">Վեհապետ Մորիա (Էլ Մորիա)</a>
-      <a href="#maitreya">Տեր Մայտրեյա</a>
-      <a href="#mary">Մայր Մարիամ</a>
-      <a href="#kuthumi">Կութհումի</a>
-      <a href="#buddha">Գաուտամա Բուդդա</a>
-      <a href="#blavatsky">Տիկին Թեոսոֆիա (Հ.Պ.Բ.)</a>
-      <a href="#igor">Իգոր</a>
-      <a href="#confucius">Կոնֆուցիոս</a>
+        <a href="#karmic-board">Մեծն Կարմայական Խորհուրդ</a>
+        <a href="#mikhail">Հրեշտակապետ Միքայել</a>
+        <a href="#helios">Հելիոս</a>
+        <a href="#athena">Աթենաս Պալլաս</a>
+        <a href="#sanat">Սանատ Կումարա</a>
+        <a href="#shiva">Տեր Շիվա</a>
+        <a href="#nikolai">Վեհապետ Նիկողայոս</a>
+        <a href="#jesus">Հիսուս</a>
+        <a href="#john">Հովհաննես Մկրտիչ</a>
+        <a href="#hilarion">Հիլարիոն</a>
+        <a href="#victorious">Հզոր Հաղթանակ</a>
+        <a href="#stgermain">Սեն-Ժերմեն</a>
+        <a href="#serapis">Սերապիս Բեյ</a>
+        <a href="#morya">Վեհապետ Մորիա (Էլ Մորիա)</a>
+        <a href="#maitreya">Տեր Մայտրեյա</a>
+        <a href="#mary">Մայր Մարիամ</a>
+        <a href="#kuthumi">Կութհումի</a>
+        <a href="#buddha">Գաուտամա Բուդդա</a>
+        <a href="#blavatsky">Տիկին Թեոսոֆիա (Հ.Պ.Բ.)</a>
+        <a href="#igor">Իգոր</a>
+        <a href="#confucius">Կոնֆուցիոս</a>
       </div>
     </aside>
 
@@ -590,34 +590,33 @@
 
   <footer class="site-footer">
     <p>© 2026 ՍԻՐԻՈՒՍ — Համբարձված Վեհապետների Ուսմունքը հայերեն</p>
-    <p class="source-note">Թարգմանված է բուլղարական կայքից <a href="https://sirius1-bg.org/" target="_blank" rel="noopener">sirius1-bg.org</a> և ռուսական աղբյուրից <a href="http://www.sirius-ru.net/" target="_blank" rel="noopener">sirius-ru.net</a></p>
   </footer>
 
 </body>
 
 <script>
-(function() {
-  var btn = document.getElementById('nav-toggle');
-  var navList = document.getElementById('main-nav-list');
-  if (btn && navList) {
-    btn.addEventListener('click', function() {
-      var open = navList.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  (function () {
+    var btn = document.getElementById('nav-toggle');
+    var navList = document.getElementById('main-nav-list');
+    if (btn && navList) {
+      btn.addEventListener('click', function () {
+        var open = navList.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navList.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          navList.classList.remove('nav-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    document.querySelectorAll('.sidebar-toggle').forEach(function (h3) {
+      h3.addEventListener('click', function () {
+        var sidebar = h3.closest('.sidebar');
+        if (sidebar) sidebar.classList.toggle('collapsed');
+      });
     });
-    navList.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') {
-        navList.classList.remove('nav-open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-  document.querySelectorAll('.sidebar-toggle').forEach(function(h3) {
-    h3.addEventListener('click', function() {
-      var sidebar = h3.closest('.sidebar');
-      if (sidebar) sidebar.classList.toggle('collapsed');
-    });
-  });
-})();
+  })();
 </script>
 
 </html>
